@@ -42,7 +42,7 @@ public class ClientHandler extends Thread {
                 MessagePackage msg = (MessagePackage) input.readObject();
 
                 if(msg.getType() == MessageType.CMD_EXIT) {
-                    break;
+                    router.handleExit(this.username);
                 } else if (msg.getType() == MessageType.CMD_USERS) {
                     router.handleUsersCommand(this.username);
                 } else {
@@ -50,9 +50,7 @@ public class ClientHandler extends Thread {
                 }
             }
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }

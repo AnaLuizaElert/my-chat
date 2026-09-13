@@ -26,7 +26,7 @@ public class ServerListener implements Runnable {
 
                 } else if (message.getType() == MessageType.FILE) {
                     System.out.println("Recebendo arquivo " + message.getFileName() + " de " + message.getSender());
-                    Path caminhoParaSalvar = Paths.get(message.getFileName());
+                    Path caminhoParaSalvar = Paths.get("src", "client", "downloads", message.getFileName());
                     Files.write(caminhoParaSalvar, message.getPayload());
                     System.out.println("Arquivo salvo com sucesso!");
 

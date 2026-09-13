@@ -40,8 +40,17 @@ public class ChatClient {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
 
-        System.out.println("=== BEM-VINDO AO CHAT ===");
-        System.out.print("Digite o seu nome de usuário: ");
+        System.out.println("""
+        ==================== BEM-VINDO AO MY-CHAT ====================
+        Veja como usar o sistema 🗨️
+        * Enviar Mensagens /send message <destinatario> <mensagem>
+        * Enviar Arquivos  /send file <destinatario> <caminho do arquivo>
+        * Listar Usuários  /users
+        * Sair do sistema  /sair
+        ==============================================================
+        ==============================================================
+        """);
+        System.out.print("Digite o seu nome de usuário: \n>");
         String username = teclado.nextLine();
 
         String ip = "127.0.0.1";
